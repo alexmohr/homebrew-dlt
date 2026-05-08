@@ -28,7 +28,7 @@ class DltDaemon < Formula
       -DWITH_SYSTEMD_JOURNAL=OFF
       -DWITH_DLT_CONSOLE=ON
       -DWITH_DLT_CONSOLE_RECEIVE=ON
-      -DWITH_DLT_CONSOLE_CONVERT=OFF
+      -DWITH_DLT_CONSOLE_CONVERT=ON
       -DWITH_DLT_CONSOLE_CONTROL=OFF
       -DWITH_DLT_CONSOLE_PASSIVE_NODE_CTRL=OFF
       -DWITH_DLT_CONSOLE_WO_SBTM=ON
@@ -55,6 +55,7 @@ class DltDaemon < Formula
     assert_predicate lib/"libdlt.dylib", :exist?
     assert_predicate bin/"dlt-daemon", :exist?
     assert_predicate bin/"dlt-receive", :exist?
+    assert_predicate bin/"dlt-convert", :exist?
     assert_predicate bin/"dlt-adaptor-stdin", :exist?
     assert_predicate include/"dlt/dlt.h", :exist?
 
