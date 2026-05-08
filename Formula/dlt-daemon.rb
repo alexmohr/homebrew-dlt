@@ -1,7 +1,7 @@
 class DltDaemon < Formula
   desc "Diagnostic Log and Trace (DLT) library, headers and daemon from COVESA"
   homepage "https://github.com/COVESA/dlt-daemon"
-  url "https://github.com/COVESA/dlt-daemon.git",
+  url "https://github.com/alexmohr/dlt-daemon.git",
       using: :git,
       revision: "81614bbb78bfc1f0d26ddafc2775a732fb49cad4"
   version "3.0.1-pr819"
@@ -21,6 +21,8 @@ class DltDaemon < Formula
     args = %W[
       -DCMAKE_C_COMPILER=#{gcc.opt_bin}/gcc-#{gcc_ver}
       -DCMAKE_CXX_COMPILER=#{gcc.opt_bin}/g++-#{gcc_ver}
+      -DCMAKE_INSTALL_RPATH=@loader_path/../lib
+      -DCMAKE_BUILD_WITH_INSTALL_RPATH=ON
       -DCMAKE_BUILD_TYPE=Release
       -DBUILD_SHARED_LIBS=ON
       -DWITH_SYSTEMD=OFF
