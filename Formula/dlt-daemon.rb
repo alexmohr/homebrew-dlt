@@ -26,7 +26,13 @@ class DltDaemon < Formula
       -DWITH_SYSTEMD=OFF
       -DWITH_SYSTEMD_WATCHDOG=OFF
       -DWITH_SYSTEMD_JOURNAL=OFF
-      -DWITH_DLT_CONSOLE=OFF
+      -DWITH_DLT_CONSOLE=ON
+      -DWITH_DLT_CONSOLE_RECEIVE=ON
+      -DWITH_DLT_CONSOLE_CONVERT=OFF
+      -DWITH_DLT_CONSOLE_CONTROL=OFF
+      -DWITH_DLT_CONSOLE_PASSIVE_NODE_CTRL=OFF
+      -DWITH_DLT_CONSOLE_WO_SBTM=ON
+      -DWITH_DLT_ADAPTOR_STDIN=ON
       -DWITH_DLT_EXAMPLES=OFF
       -DWITH_DLT_SYSTEM=OFF
       -DWITH_DLT_DBUS=OFF
@@ -48,6 +54,8 @@ class DltDaemon < Formula
   test do
     assert_predicate lib/"libdlt.dylib", :exist?
     assert_predicate bin/"dlt-daemon", :exist?
+    assert_predicate bin/"dlt-receive", :exist?
+    assert_predicate bin/"dlt-adaptor-stdin", :exist?
     assert_predicate include/"dlt/dlt.h", :exist?
 
     (testpath/"test_dlt.c").write <<~C
