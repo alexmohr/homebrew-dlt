@@ -1,10 +1,8 @@
 class DltDaemon < Formula
   desc "Diagnostic Log and Trace (DLT) library, headers and daemon from COVESA"
   homepage "https://github.com/COVESA/dlt-daemon"
-  url "https://github.com/alexmohr/dlt-daemon.git",
-      using: :git,
-      revision: "81614bbb78bfc1f0d26ddafc2775a732fb49cad4"
-  version "3.0.1-pr819"
+  url "https://github.com/COVESA/dlt-daemon.git", branch: "master"
+  version "master"
   license "MPL-2.0"
 
   head "https://github.com/COVESA/dlt-daemon.git", branch: "master"
